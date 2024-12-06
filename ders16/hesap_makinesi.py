@@ -1,43 +1,29 @@
-def suma(a, b):
+def toplama(a, b):
     return a + b
 
-def substr(a, b):
+def cikarma(a, b):
     return a - b
 
-
-def power(a, b):
+def uslu_hesaplama(a, b):
     return a ** b
 
-def mult(a, b):
+def carpma(a, b):
     return a * b
 
-def calc (operand_A, operand_B, operation):
-    if operation not in ['+', '-', '*', '^']:
-        print('bilinmeyen işlem')
+def hesapla(islem_A, islem_B, islem):
+    if islem not in ['+', '-', '*', '^']:
+        print('Bilinmeyen işlem')
     else:
-        # Python 3.10 (2021) introduced the match-case statement
-        # which provides a first-class implementation of a "switch" for Python
-        '''   
-        match operation:
-            case '+':
-                result = suma(operand_A, operand_B)
-            case '-':
-                result = substr(operand_A, operand_B)
-            case '*':
-                result = mult(operand_A, operand_B)
-            case '^':
-                result = power(operand_A, operand_B)
-        '''
-        if(operation == '+'):
-            result = suma(operand_A, operand_B)
-        elif(operation == '-'):  
-            result = substr(operand_A, operand_B)
-        elif(operation == '*'):
-            result = mult(operand_A, operand_B)
+        if islem == '+':
+            sonuc = toplama(islem_A, islem_B)
+        elif islem == '-':  
+            sonuc = cikarma(islem_A, islem_B)
+        elif islem == '*':
+            sonuc = carpma(islem_A, islem_B)
         else:
-            result = power(operand_A, operand_B)
+            sonuc = uslu_hesaplama(islem_A, islem_B)
         
-        print(operand_A, operation, operand_B, '=', result)
+        print(islem_A, islem, islem_B, '=', sonuc)
     
-a, operator, b = input().split()
-calc(int(a), int(b), operator)
+a, operator, b = input('Bir işlem giriniz (örneğin: 5 + 3): ').split()
+hesapla(int(a), int(b), operator)

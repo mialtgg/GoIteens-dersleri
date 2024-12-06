@@ -1,5 +1,6 @@
 def print_message():
-    print('Mine ALTUĞ')   
+    print('Mine ALTUĞ')
+    print("hello dünya")   
     
 print_message()
 print_message()
@@ -15,8 +16,7 @@ def draw_box():
     print('*' * 10)
     for i in range(12):
         print('*' + ' ' * 8 + '*')
-    print('*' * 10)   
-    
+    print('*' * 10)      
 draw_box()
 def draw_triangle():
   for i in range(10):  # 10 kez çiz
