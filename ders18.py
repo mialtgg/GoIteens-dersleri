@@ -1,28 +1,19 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import random
-x = np.linspace(-10, 10, 100)
-y = 2 * x + 1
-plt.plot(x, y)
-plt.title("y = 2x + 1")
-plt.xlabel("x")
-plt.ylabel("y")
-plt.grid()
-plt.show()
+# Birinci yöntem: 'open' ve 'close' ile dosya yazma
+file = open('example.txt', 'w')  # Dosyayı yazma modunda açıyoruz
+file.write("Bu bir yazma komutudur\n")  # İlk satırı yazıyoruz
+file.write("Bu satır da dosyaya yazılacak")  # İkinci satırı yazıyoruz
+file.close()  # Dosyayı kapatıyoruz
 
+# Dosyanın içeriğini ekrana yazdırma
+with open('example.txt', 'r') as file:  # Dosyayı okuma modunda açıyoruz
+    content = file.read()  # Dosyanın içeriğini okuyoruz
+    print(content)  # İçeriği ekrana yazdırıyoruz
 
-gizli_sayi = random.randint(1, 10)
+# İkinci yöntem: 'with' bloğu kullanarak dosya yazma
+with open("example.txt", "w") as file:  # Dosyayı yazma modunda açıyoruz
+    file.write("Hi there!")  # Dosya üzerinde işlemi gerçekleştiriyoruz
 
-print("1 ile 10 arasında bir sayı tahmin edin!")
-
-while True:
-  
-        tahmin = int(input("Tahmininiz: "))
-
-        if tahmin == gizli_sayi:
-            print("🎉 Tebrikler! Doğru tahmin ettiniz!")
-            break
-        elif tahmin < gizli_sayi:
-            print("Daha büyük bir sayı tahmin edin.")
-        else:
-            print("Daha küçük bir sayı tahmin edin.")
+# Dosyanın içeriğini ekrana yazdırma
+with open('example.txt', 'r') as file:  # Dosyayı okuma modunda açıyoruz
+    content = file.read()  # Dosyanın içeriğini okuyoruz
+    print(content)  # İçeriği ekrana yazdırıyoruz
